@@ -18,7 +18,7 @@ public class Calculator {
         while (true) {
 
             System.out.println("Enter an integer number or enter 'stop' to quit:");
-            input = scanner.next();
+            input = scanner.nextLine();
 
             if (!input.equalsIgnoreCase("stop")) {
 
@@ -30,12 +30,12 @@ public class Calculator {
                         break outerloop;
                     } else {
                         System.out.println(incorrectInput);
-                        input = scanner.next();
+                        input = scanner.nextLine();
                     }
                 }
 
                 System.out.println("Enter another integer number or enter 'stop' to quit:");
-                input = scanner.next();
+                input = scanner.nextLine();
 
                 while (true) {
                     if (input.chars().allMatch(Character::isDigit)) {
@@ -45,18 +45,18 @@ public class Calculator {
                         break outerloop;
                     } else {
                         System.out.println(incorrectInput);
-                        input = scanner.next();
+                        input = scanner.nextLine();
                     }
                 }
 
                 System.out.println("Enter an operation or enter 'stop' to quit:");
-                input = scanner.next();
+                input = scanner.nextLine();
 
                 while (true) {
                     if (Arrays.asList(operations).contains(input)) {
                         if (num2 == 0 && input.equals("/")) {
                             System.out.println(DivisionByZero);
-                            input = scanner.next();
+                            input = scanner.nextLine();
                         } else {
                             operation = input;
                             break;
@@ -65,7 +65,7 @@ public class Calculator {
                         break outerloop;
                     } else {
                         System.out.println(incorrectInput);
-                        input = scanner.next();
+                        input = scanner.nextLine();
                     }
                 }
 
@@ -97,6 +97,8 @@ public class Calculator {
 
         if(operation.equals("/") && num1%num2 == 0){
         return "" + num1 + operation + num2 + "=" + result;}
-        else{return "" + num1 + operation + num2 + "=" + String.format("%.2f", (double) num1/(double) num2);}
+        else if (operation.equals("/") && num1%num2 != 0){
+            return "" + num1 + operation + num2 + "=" + String.format("%.2f", (double) num1/(double) num2);}
+        else {return "" + num1 + operation + num2 + "=" + result;}
     }
 }
