@@ -95,10 +95,8 @@ public class Calculator {
                 break;
         }
 
-        if(operation.equals("/") && num1%num2 == 0){
-        return "" + num1 + operation + num2 + "=" + result;}
-        else if (operation.equals("/") && num1%num2 != 0){
-            return "" + num1 + operation + num2 + "=" + String.format("%.2f", (double) num1/(double) num2);}
+        if(operation.equals("/")){
+            if(num1%num2 == 0){return "" + num1 + operation + num2 + "=" + result;}
+            else{return "" + num1 + operation + num2 + "=" + String.format("%.2f", (double) num1/(double) num2);}}
         else {return "" + num1 + operation + num2 + "=" + result;}
-    }
-}
+}}
