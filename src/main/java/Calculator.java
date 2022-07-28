@@ -96,9 +96,9 @@ public class Calculator {
                 break;
         }
 
-        answer = "" + num1 + operation + num2 + "=" + result;
+        answer = "" + num1 + operation + num2 + "=";
         if(operation.equals("/")){
-            if(num1%num2 == 0){return answer;}
-            else{return "" + num1 + operation + num2 + "=" + String.format("%.2f", (double) num1/(double) num2);}}
-        else {return answer;}
+            if(num1%num2 == 0){return answer+result;}
+            else{return answer + String.format("%.2f", (double) num1/(double) num2);}}
+        else {return answer+result;}
 }}
