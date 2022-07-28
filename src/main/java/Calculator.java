@@ -79,6 +79,7 @@ public class Calculator {
     public static String result(int num1, int num2, String operation){
 
         int result = 0;
+        String answer;
 
         switch (operation) {
             case "+":
@@ -95,8 +96,9 @@ public class Calculator {
                 break;
         }
 
+        answer = "" + num1 + operation + num2 + "=" + result;
         if(operation.equals("/")){
-            if(num1%num2 == 0){return "" + num1 + operation + num2 + "=" + result;}
+            if(num1%num2 == 0){return answer;}
             else{return "" + num1 + operation + num2 + "=" + String.format("%.2f", (double) num1/(double) num2);}}
-        else {return "" + num1 + operation + num2 + "=" + result;}
+        else {return answer;}
 }}
